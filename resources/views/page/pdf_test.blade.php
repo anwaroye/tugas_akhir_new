@@ -6,13 +6,11 @@
 </head>
  
 <body>
-	@foreach ($ctk as $i)
+	
 	<th>
-	<td> {{[$i->nama_test]}}</td>
+	<td> {{[$ctk->nama_test]}}</td>
 	</th>
-		
-	@endforeach
-
+	
         
         {{-- <input id="id" type="text" class="form-control"  data-tag-class="label label-primary" value="id" disabled/> --}}
         {{-- <input id="nama_test" type="text" class="form-control form-control-invisible"  data-tag-class="label label-primary" value="" disabled/> --}}
