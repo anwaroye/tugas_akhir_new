@@ -289,12 +289,13 @@
                                    data-toggle="modal" data-target="#mediumModal">
                                       <i class="fa fa-eye"></i>
                                       </button> 
-                                      <button type="button" class="btn btn-success btn-sm" method="post">
+                                      {{-- <button type="button" class="btn btn-success btn-sm" method="post"> --}}
                                       <a href="{{route('cetak',[$dttestings->id])}}" class="btn btn-success">
+                                        <i class="btn-success fa fa-print"></i>
+
                                         </a>
 
-                                        <i class="btn-success fa fa-print"></i>
-                                                </button>    
+                                                {{-- </button>     --}}
                                                  
                               </div>
 
