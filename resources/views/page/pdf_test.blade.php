@@ -9,6 +9,7 @@
 	
 	<th>
 	<td> {{[$ctk->nama_test]}}</td>
+	<td> {{[$ctk->nama_test]}}</td>
 	</th>
 	
         
