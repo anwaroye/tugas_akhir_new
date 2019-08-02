@@ -186,14 +186,24 @@
                       <td>{{$no++}}</td>
                       <td>{{$dttestings->nama_test}}</td>
                       <td>{{$dttestings->nis_test}}</td>
-                    <td>{{$dttestings->divisi_test}}</td>
+                      @if($dttestings->divisi_test <1)
+                              <td> SAR</td>
+                              @elseif($dttestings->divisi_test == 1)
+                              <td> RC</td>
+                              @elseif($dttestings->divisi_test > 1)
+                              <td> SURVIVAL</td>
+                              @else
+                                  <td> nilai tidak ada </td>
+                               @endif
+  
+                    {{-- <td>{{$dttestings->divisi_test}}</td> --}}
                       <td>
                               <div class="card-body">
-                                  <form  action=""  method="post" style="display: inline-block;">
+                              <form  action="{{route('deltes',[$dttestings->id])}}"  method="post" style="display: inline-block;">
                                        {{ csrf_field() }}
                                       
-                              <button type="button" class="btn btn-danger btn-sm">
-                              {{-- <a href="{{!! url('/print-test', $dttestings->id)!!}}"></a> --}}
+                              <button type="submit" onClick="return confirm('Yakin ingin menghapus data ini ?');" class="btn btn-danger btn-sm">
+                              <a href=""></a>
                                           <i class="fa fa-trash"></i></button>      
                                        </form>
                                        
@@ -290,7 +300,8 @@
                                       <i class="fa fa-eye"></i>
                                       </button> 
                                       {{-- <button type="button" class="btn btn-success btn-sm" method="post"> --}}
-                                      <a href="{{route('cetak',[$dttestings->id])}}" class="btn btn-success">
+                                        <a href="{{route('pdf',[$dttestings->id])}}" class="btn btn-success">
+                                            {{-- <a href="/testing/cetak_test" class="btn btn-success"> --}}
                                         <i class="btn-success fa fa-print"></i>
 
                                         </a>

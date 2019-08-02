@@ -280,11 +280,30 @@ class ControllerTesting extends Controller
      */
     public function destroy($id)
     {
-        //
+        {
+            $deltes = testing::findOrFail($id);
+            $deltes->delete();
+            return redirect()->route('testing')->with('alert', 'data berhasil di hapus');
+           // code...
+         }
     }
-    public function generatePDF()
+    public function generatePDF(Request $request, $id)
  
     {
+        $pdf = testing::findOrFail($id);
+      $pdf->n_gh_test=$request->n_gh_test;
+    //   $pdf->location_event=$request->location_event;
+    //   $pdf->desc_event=$request->desc_event;
+      $success = $pdf->save();
+
+      if($success){
+        return redirect()->route('event')->with('alert', 'data berhasil dimasukan');
+
+      }else{
+        return redirect()->route('testing')->with('alert','data tidak berhasil dimasukan');
+      }
+        $pdf->reset();
+        return redirect()->route('testing');
        
 
 
@@ -302,9 +321,9 @@ class ControllerTesting extends Controller
     }
     public function cetak($id)
     {
-        $ctk = testing::findOrFail($id);
- 
-    	$pdf = PDF::loadview('page.pdf_test','ctk');
+        // $ctk = testing::where('');
+        $cetak = testing::findOrFail($id);
+    	$pdf = PDF::loadview('page.pdf_test',$cetak);
         // return $pdf->download('page.pdf_test',);
         return $pdf->stream();
         

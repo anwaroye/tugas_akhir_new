@@ -128,7 +128,7 @@
                         </a>
                         <ul class="treeview-menu">
                         <li  class="" ><a href="{{route('index')}}"><i class="fa fa-circle-o"></i> Data Training </a></li>
-                        <li><a href="{{route('testing')}}"><i class="fa fa-circle-o"></i> Data Training</a></li>
+                        <li><a href="{{route('testing')}}"><i class="fa fa-circle-o"></i> Data Testing</a></li>
                         </ul>
                       </li>
                       

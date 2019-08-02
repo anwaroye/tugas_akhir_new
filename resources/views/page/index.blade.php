@@ -27,7 +27,7 @@
     <section> 
       <form role="form" action="{{URL::to('index/import_excel')}}" method="post" enctype="multipart/form-data">
         <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
-          IMPORT EXCEL
+          Import Training
         </button>
       </form>
     </section>
@@ -79,6 +79,7 @@
                   <th>Repling</th>
                   <th>SK</th>
                   <th>Minat</th>
+                  <th>Divisi</th>
                   
                   
                   
@@ -167,10 +168,8 @@
                           @else
                               <td> nilai tidak ada </td>
                            @endif
-                            {{-- ---------------------------------------------------- --}}
 
                             {{-- ==========sebrNg kering==================== --}} 
-                            {{-- ---------------------------------------------------- --}}
                             @if($dtrainings->minat <1)
                             <td> SAR</td>
                             @elseif($dtrainings->minat == 1)
@@ -180,10 +179,19 @@
                             @else
                                 <td> nilai tidak ada </td>
                              @endif
-                              {{-- ---------------------------------------------------- --}}
 
                               {{-- ==========minat==================== --}} 
-                              {{-- ---------------------------------------------------- --}}
+                              @if($dtrainings->divisi <1)
+                              <td> SAR</td>
+                              @elseif($dtrainings->divisi == 1)
+                              <td> RC</td>
+                              @elseif($dtrainings->divisi > 1)
+                              <td> SURVIVAL</td>
+                              @else
+                                  <td> nilai tidak ada </td>
+                               @endif
+  
+                                {{-- ==========minat==================== --}} 
                             </td>
                     </tr>
                     </tr>
@@ -201,6 +209,7 @@
                         <th>Repling</th>
                         <th>SK</th>
                         <th>Minat</th>
+                        <th>Divisi</th>
                         
                 </tr>
                 </tfoot>

@@ -7,10 +7,14 @@
  
 <body>
 	
-	<th>
-	<td> {{[$ctk->nama_test]}}</td>
-	<td> {{[$ctk->nama_test]}}</td>
-	</th>
+<form action="{{route('pdf',[$cetak->id])}}" method="POST">
+		{{ csrf_field() }}
+
+		<div class="form-group">
+            <label>Nama event</label>
+            <input value="{{$pdf->n_gh_test}}" type="text" class="form-control" id="title_event" required="required" placeholder="Enter nama event" name="n_gh_test">
+        </div>
+	</form>
 	
         
         {{-- <input id="id" type="text" class="form-control"  data-tag-class="label label-primary" value="id" disabled/> --}}
