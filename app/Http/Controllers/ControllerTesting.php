@@ -297,7 +297,7 @@ class ControllerTesting extends Controller
        
 
         $data = DB::select("select * from testing where id='".$id."'");
-        dd($data);
+        // dd($data);
         // var_dump($data);
         $pdf = PDF::loadView('page.pdf_test',compact('data'));
         // >setPaper('a4','landscape');
