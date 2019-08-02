@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 use\App\testing;
 use\App\training;
+// use\App\DB;
+
 use PDF;
 
 
@@ -290,40 +294,21 @@ class ControllerTesting extends Controller
     public function generatePDF(Request $request, $id)
  
     {
-        $pdf = testing::findOrFail($id);
-      $pdf->n_gh_test=$request->n_gh_test;
-    //   $pdf->location_event=$request->location_event;
-    //   $pdf->desc_event=$request->desc_event;
-      $success = $pdf->save();
-
-      if($success){
-        return redirect()->route('event')->with('alert', 'data berhasil dimasukan');
-
-      }else{
-        return redirect()->route('testing')->with('alert','data tidak berhasil dimasukan');
-      }
-        $pdf->reset();
-        return redirect()->route('testing');
        
 
-
-
-
-
-        // $cetakPdf = testing::where('testing')->join('gh_test')->select('gh_test')->get();
-        // $data = testing::get(['n_gh_test']);
-        // $data = testing::all();
- 
-        // $pdf = PDF::loadView('page.pdf_test','data');
+        $data = DB::select("select * from testing where id='".$id."'");
+        dd($data);
+        // var_dump($data);
+        $pdf = PDF::loadView('page.pdf_test',compact('data'));
         // >setPaper('a4','landscape');
         // return $pdf->download('print-test.pdf');
-        // return $pdf->stream();
+        return $pdf->stream();
     }
     public function cetak($id)
     {
         // $ctk = testing::where('');
-        $cetak = testing::findOrFail($id);
-    	$pdf = PDF::loadview('page.pdf_test',$cetak);
+        // $cetak = testing::findOrFail($id);
+    	// $pdf = PDF::loadview('page.pdf_test',$cetak);
         // return $pdf->download('page.pdf_test',);
         return $pdf->stream();
         

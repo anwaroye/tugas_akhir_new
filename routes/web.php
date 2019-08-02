@@ -30,6 +30,7 @@ Route::get('/testing/cetak_test','ControllerTesting@cetak');
 Route::post('/index/import_excel', 'ControllerIndex@import_excel');
 Route::post('/delete/{id}','ControllerTesting@destroy')->name('deltes');
 // Route::post('/pdf/{id}','ControllerTesting@generatePDF')->name('pdf');
+// Route::get('/pdf/{id}','ControllerTesting@generatePDF');
 Route::get('/pdf/{id}','ControllerTesting@generatePDF')->name('pdf');
 
 // Route::get('/training/export_excel', 'SiswaController@export_excel');

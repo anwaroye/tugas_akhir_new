@@ -6,15 +6,19 @@
 </head>
  
 <body>
+	@foreach ($data as $p)
+	<p>{{$p->n_gh_test}}</p>
+		
+	@endforeach
 	
-<form action="{{route('pdf',[$cetak->id])}}" method="POST">
-		{{ csrf_field() }}
+{{-- <form action="{{route('pdf',[$data->id])}}" method="get"> --}}
+		{{-- {{ csrf_field() }} --}}
 
-		<div class="form-group">
+		{{-- <div class="form-group">
             <label>Nama event</label>
-            <input value="{{$pdf->n_gh_test}}" type="text" class="form-control" id="title_event" required="required" placeholder="Enter nama event" name="n_gh_test">
-        </div>
-	</form>
+            <input value="{{$data->n_gh_test}}" type="text" class="form-control" id="title_event" required="required" placeholder="Enter nama event" name="n_gh_test">
+        </div> --}}
+	{{-- </form> --}}
 	
         
         {{-- <input id="id" type="text" class="form-control"  data-tag-class="label label-primary" value="id" disabled/> --}}
@@ -25,10 +29,10 @@
 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-	@foreach ($cetakPdf as $pdf)
+	{{-- @foreach ($cetakPdf as $pdf) --}}
 	{{-- <td>{{$i->gh_test}}</td> --}}
 		
-	@endforeach
+	{{-- @endforeach --}}
  
 </body>
 </html>

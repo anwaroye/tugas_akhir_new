@@ -301,7 +301,7 @@
                                       </button> 
                                       {{-- <button type="button" class="btn btn-success btn-sm" method="post"> --}}
                                         <a href="{{route('pdf',[$dttestings->id])}}" class="btn btn-success">
-                                            {{-- <a href="/testing/cetak_test" class="btn btn-success"> --}}
+                                        {{-- <a href="/testing/pdf/{{$dttestings->id}}" class="btn btn-success"> --}}
                                         <i class="btn-success fa fa-print"></i>
 
                                         </a>
