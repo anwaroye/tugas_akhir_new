@@ -83,6 +83,8 @@ class ControllerTesting extends Controller
         //   $dttesting->minat = $request->get('minat');
         //   $dttesting->jenis_data ='1';
          
+
+        //memasukan data ke variable array 
          $data[0]= $request->get('gh');
          $data[1]= $request->get('ppgd');
          $data[2]= $request->get('sar');
@@ -101,6 +103,7 @@ class ControllerTesting extends Controller
                             'minat'=>$minat);
         $hasil = $this->nb($data_nb);
 
+        //insert data nilai yang sudah dikonver menjadi sedang renda atau tinggi  ke database dalam bentuk integer 
           $dttesting= new testing();
           $dttesting->nama_test = $request->get('nama');
           $dttesting->nis_test = $request->get('nis_test');
@@ -121,6 +124,8 @@ class ControllerTesting extends Controller
           return redirect()->route('testing')->with('alert-success', 'data berhasil dimasukan');
  
     }
+    //mengkonvert dari nilai 0,1,2 yang mewakili rendah sendang dan tinggi
+    
     private function kat_atribut($data){
 		for($i=0; $i<count($data); $i++){
 			switch ($data[$i]) {
@@ -143,6 +148,8 @@ class ControllerTesting extends Controller
     
 
     private function nb($data){
+        
+        // memasukan data yang akan di proses ke dalam variable baru  
 		$gh = $data['gh'];
 		$ppgd = $data['ppgd'];
 		$n_sar = $data['sar'];
@@ -159,6 +166,11 @@ class ControllerTesting extends Controller
         $rc = training::where('divisi',2);
         $rc_row = $rc->count();
         
+        //mengabil jumlah  data baris berdasarkan atribute dan label
+        
+        //cnth :  total atribute gh  sedang dengan label Survival dibagi keseluruhan jumlah baris
+        // dari label survival   
+
 		$tot_gh_survival = training::where('nilai_gh',$gh)->where('divisi','0')->count();
 		$p_gh_survival = $tot_gh_survival / $survival_row;
 		$tot_gh_sar = training::where('nilai_gh',$gh)->where('divisi',1)->count();
@@ -206,25 +218,37 @@ class ControllerTesting extends Controller
 		$tot_minat_sar = training::where('minat',$minat)->where('divisi',1)->count();
 		$p_minat_sar = $tot_minat_sar / $sar_row;
 		$tot_minat_rc = training::where('minat',$minat)->where('divisi',2)->count();
-		$p_minat_rc = $tot_minat_rc / $rc_row;
+        $p_minat_rc = $tot_minat_rc / $rc_row;
 
+        //seluruh hasil dari pembagian diatas dengan  label yang sama dikalikan   
 
         $x_survival = $p_gh_survival * $p_ppgd_survival * $p_sar_survival * $p_impk_survival * $p_repling_survival * $p_sk_survival * $p_minat_survival;
         $x_sar      = $p_gh_sar * $p_ppgd_sar * $p_sar_sar * $p_impk_sar * $p_repling_sar * $p_sk_sar * $p_minat_sar;
         $x_rc       = $p_gh_rc * $p_ppgd_rc * $p_sar_rc * $p_impk_rc * $p_repling_rc * $p_sk_rc * $p_minat_rc;
         
         
+        //jumlah baris yang dimiliki label dibagi total keseluruhan baris
+        // cnth: jumlah baris survival 34 dibagi keseluruhan  baris yang totalnya 90
 		$b_survival       = $survival_row / $tot_row;
 		$b_sar            = $sar_row / $tot_row;
-		$b_rc             = $rc_row / $tot_row;
+        $b_rc             = $rc_row / $tot_row;
+        
 
+        // hasil dari perkalian semua atribute 
+        // dengan label  yg sama dikalikan dengan hasil dari 
+        // pembagian total baris label dan total kesulurahn batis data
+        
 		$p_survival = $x_survival * $b_survival;
 		$p_sar = $x_sar * $b_sar;
 		$p_rc = $x_rc * $b_rc;
 
+        // menampilkan perbandingan hasil perkalian di atas
 		$data['survival'] = $p_survival;
 		$data['sar'] = $p_sar;
-		$data['rc'] = $p_rc;
+        $data['rc'] = $p_rc;
+        
+        
+        //menampilkan hasil hasil terbesar dari perbandingan
 
 		if(($p_rc < $p_survival) && ($p_survival > $p_sar)){
 			$data['hasil'] = 0;

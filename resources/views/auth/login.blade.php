@@ -10,7 +10,7 @@
                         <div id="particles-js"></div>
                         <div class="w-100">
                             <div class="logo mb-4">
-                            <img src="{{asset('login-asset/img/kodinger.jpg')}}" alt="kodinger logo" class="img-fluid">
+                            <img src="{{asset('login-asset/img/logo_kecil.png')}}" alt="kodinger logo" class="img-fluid">
                             </div>
                             <h4 class="text-light mb-2">Pecinta Alam Panker</h4>
                             <p class="lead text-light">Klasifikasi Pendivisian Pada Organisasi Panker dengan Naive Bayes</p>
