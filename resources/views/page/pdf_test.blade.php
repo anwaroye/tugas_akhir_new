@@ -4,50 +4,81 @@
 <head>
 	<title>Hi</title>
 	<style>
-		
-   div {
-     width:100%;
+		 
+   	
+	.garis_logo{
+	width:100%;
+	height: 5%;
+	padding :15px;
+	border: 2px solid black;
+
+
+	}
+	.logo{
+		width: 100%;
+		align:center;
+	}
+   .garis_tepi1 {
+	width:100%;
 	 height: 50%;
 	 align:center;
 	 padding :20px;
-	 /* margin : 20px; */
-
-	 
-	 
-	 
-   }
-   .garis_tepi1 {
 	 border: 2px solid black;
 	 
    }
    .tabel{
 	   align : center;
    }
- 
+   
+
+   
+   table, th, td {
+  	border: 1px solid black;
+  	border-collapse: collapse;
+	}
+	th  {
+  	padding: 15px;
+	  text-align: center;
+	}
+	td{
+		padding: 15px;
+	}
+   text{
+	   size: 10px;
+   }
+
+
 			</style>
 
 </head>
  
 <body>
-	@php
-	$atribute = array('Gunung Hutan', 'PPGG','SAR', 'RC','Sebrang Kering');
-
 	
-	@endphp
+	
 		@php
 		$no= 1;
 	@endphp
-	@php
+	{{-- @php
 		for($x=0;$x<count($atribute);$x++){
 	echo $atribute[$x]."<br/>";
 }
-	@endphp
+	@endphp --}}
+	<div class="garis_logo" >
+		<center>
+				<img src="img/logo-projek.png" width="200" height="50" alt="" />
+
+		</center>
+	
+	</div>
+	 
 	@foreach ($data as $p)
-  <p><pre>  Nama       	:  {{$p->nama_test}} </pre>  </p> 
- 	<pre>  Nis        		:  {{$p->nis_test}} </pre>  
+	<p></p>
+			<p> Nama &nbsp;&nbsp;&nbsp;&nbsp;  : {{$p->nama_test}}      </p>
+			<p>  NIS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$p->nis_test}}</p>
+			
  <div class="garis_tepi1">
 
-		<table style="width:100%">
+		<table  style="width:100%">
 				<thead>
 				  <tr>
 					<th scope="col"> NO</th>
