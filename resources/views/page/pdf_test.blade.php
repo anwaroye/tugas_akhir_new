@@ -9,6 +9,9 @@
      width:100%;
 	 height: 50%;
 	 align:center;
+	 padding :20px;
+	 /* margin : 20px; */
+
 	 
 	 
 	 
@@ -26,62 +29,128 @@
 </head>
  
 <body>
+	@php
+	$atribute = array('Gunung Hutan', 'PPGG','SAR', 'RC','Sebrang Kering');
+
 	
+	@endphp
+		@php
+		$no= 1;
+	@endphp
+	@php
+		for($x=0;$x<count($atribute);$x++){
+	echo $atribute[$x]."<br/>";
+}
+	@endphp
 	@foreach ($data as $p)
-  <p><pre>  Nama       :  {{$p->nama_test}} </pre>  </p> 
- <pre>  Nis        :  {{$p->nis_test}} </pre>  
+  <p><pre>  Nama       	:  {{$p->nama_test}} </pre>  </p> 
+ 	<pre>  Nis        		:  {{$p->nis_test}} </pre>  
  <div class="garis_tepi1">
-<div class ="tabel" >
-		<table class="table table-bordered" align = "center" width ="100 %">
+
+		<table style="width:100%">
 				<thead>
 				  <tr>
-					<th scope="col"> Gunung Hutan</th>
-					<th scope="col"> PPGD</th>
-					<th scope="col"> SAR</th>
-					<th scope="col"> IMPK</th>
-					<th scope="col"> Rock Climbing</th>
-					<th scope="col"> Sebrang Kering</th>
-					<th scope="col">Minat</th>
+					<th scope="col"> NO</th>
+					<th scope="col"> MATERI</th>
+					<th scope="col"> NILAI</th>
+					<th scope="col"> MINAT</th>
+					<th scope="col"> REKOMENDASI</th>
 				  </tr>
 				</thead>
 				<tbody>
-				  <tr>
-					
+					<tr> 
+					<td>{{$no++}}</td>
+						<td>Gunung Hutan</td>
+
 						@if($p->n_gh_test <1)
 						<td> rendah</td>
 						@elseif($p->n_gh_test == 1)
 						<td> sedang</td>
 						@elseif($p->n_gh_test > 1)
-							<td> tinggi</td>
+						<td> tinggi</td>
+						@elseif($p->n_gh_test > 2)
+						<td>Nilai tidak terdefinisi</td>
+						@else
+							<td> nilai tidak ada </td>
+
+						 @endif
+						
+						@if($p->minat_test <1)
+						<td> Survival</td>
+						@elseif($p->minat_test == 1)
+						<td> SAR</td>
+						@elseif($p->minat_test > 1)
+						<td> RC</td>
+						@elseif($p->minat_test > 2)
+						<td> tidak terdefinisi</td>
+						@else
+							<td> nilai tidak ada </td>
+
+						 @endif
+						
+						 @if($p->divisi_test <1)
+						<td> SURVIVAL</td>
+						@elseif($p->divisi_test == 1)
+						<td> SAR </td>
+						@elseif($p->divisi_test > 1)
+						<td> RC</td>
+						@elseif($p->divisi_test > 2)
+						<td>Nilai tidak terdefinisi</td>
 						@else
 							<td> nilai tidak ada </td>
 						 @endif
+						
+					</tr>
+					<tr>
+					<td>{{$no++}}</td>
+					<td>SAR</td>
+					
+					@if($p->n_gh_test <1)
+					<td> rendah</td>
+					@elseif($p->n_gh_test == 1)
+					<td> sedang</td>
+					@elseif($p->n_gh_test > 1)
+					<td> tinggi</td>
+					@elseif($p->n_gh_test > 2)
+					<td>Nilai tidak terdefinisi</td>
+					@else
+						<td> nilai tidak ada </td>
+
+					 @endif
+					
+					@if($p->minat_test <1)
+					<td> Survival</td>
+					@elseif($p->minat_test == 1)
+					<td> SAR</td>
+					@elseif($p->minat_test > 1)
+					<td> RC</td>
+					@elseif($p->minat_test > 2)
+					<td> tidak terdefinisi</td>
+					@else
+						<td> nilai tidak ada </td>
+
+					 @endif
+					
+					 @if($p->divisi_test <1)
+					<td> SURVIVAL</td>
+					@elseif($p->divisi_test == 1)
+					<td> SAR </td>
+					@elseif($p->divisi_test > 1)
+					<td> RC</td>
+					@elseif($p->divisi_test > 2)
+					<td>Nilai tidak terdefinisi</td>
+					@else
+						<td> nilai tidak ada </td>
+					 @endif
+					</tr>
+					
 	
-						 @if($p->n_ppgd_test <1)
-						 <td> rendah</td>
-						 @elseif($p->n_ppgd_test == 1)
-						 <td> sedang</td>
-						 @elseif($p->n_ppgd_test > 1)
-							 <td> tinggi</td>
-						 @else
-							 <td> nilai tidak ada </td>
-						  @endif
-						  
-						 
-						  @if($p->n_sar_test <1)
-						  <td> rendah</td>
-						  @elseif($p->n_sar_test == 1)
-						  <td> sedang</td>
-						  @elseif($p->n_sar_test > 1)
-							  <td> tinggi</td>
-						  @else
-							  <td> nilai tidak ada </td>
-						   @endif
+						
 	
 					
 				</tbody>
 			  </table>
-	 </div>
+	
 	
 		
 	@endforeach
