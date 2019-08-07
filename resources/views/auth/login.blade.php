@@ -30,7 +30,7 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="padding">
                         <h2>Login</h2>
-                        <p class="lead">Before you get started, you must login or register if you don't already have an account.</p>
+                        <p class="lead">Before you get started, you must login </p>
                         
                         <form autocomplete="off"  method="POST" action="{{ route('login') }}">
                             <div class="form-group">
@@ -50,7 +50,7 @@
                                 <label class="d-block" for="password">
                                     Password
                                     <div class="float-right">
-                                        <a href="#">Forgot Password?</a>
+                                        <a href="#"></a>
                                     </div>
                                 </label>
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -64,7 +64,7 @@
                             </div>
                             <div class="form-group text-right">
                                 <div class="float-left mt-2">
-                                    <a href="#">Create an account?</a>
+                                    <a href="#"></a>
                                 </div>
                                 {{-- <button class="btn btn-primary" tabindex="3">
                                     Login

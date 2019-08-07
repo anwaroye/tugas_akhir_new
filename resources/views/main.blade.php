@@ -162,7 +162,7 @@
                           <span class="info-box-icon bg-aqua"><i class="fa  fa-paw"></i></span>
               
                           <div class="info-box-content">
-                            <span class="info-box-text">Data Survival</span>
+                            <span class="info-box-text">Divisi Survival [Training]</span>
                           <span class="info-box-number">{{($div_survival->count())}}</span>
                           </div>
                           <!-- /.info-box-content -->
@@ -175,7 +175,7 @@
                           <span class="info-box-icon bg-red"><i class="fa fa-plus-circle"></i></span>
               
                           <div class="info-box-content">
-                            <span class="info-box-text">Data Divisi SAR [Training]</span>
+                            <span class="info-box-text">Divisi SAR [Training]</span>
                           <span class="info-box-number">{{($div_sar->count())}}</span>
                           </div>
                           <!-- /.info-box-content -->
@@ -187,7 +187,7 @@
                           <span class="info-box-icon bg-red"><i class="fa fa-hand-paper-o"></i></span>
               
                           <div class="info-box-content">
-                            <span class="info-box-text">Data Divisi RC [Training]</span>
+                            <span class="info-box-text"> Divisi RC [Training]</span>
                           <span class="info-box-number">{{($div_rc->count())}}</span>
                           </div>
                           <!-- /.info-box-content -->

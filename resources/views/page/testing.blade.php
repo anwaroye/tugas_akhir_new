@@ -161,7 +161,7 @@
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">
-                    <table id="example2" class="table table-bordered table-hover">
+                    <table id="example1" class="table table-bordered table-hover">
                       <thead>
                       <tr>
                             <td>No</td>
@@ -187,11 +187,11 @@
                       <td>{{$dttestings->nama_test}}</td>
                       <td>{{$dttestings->nis_test}}</td>
                       @if($dttestings->divisi_test <1)
-                              <td> SAR</td>
+                              <td> Survival</td>
                               @elseif($dttestings->divisi_test == 1)
-                              <td> RC</td>
+                              <td> SAR</td>
                               @elseif($dttestings->divisi_test > 1)
-                              <td> SURVIVAL</td>
+                              <td> RC</td>
                               @else
                                   <td> nilai tidak ada </td>
                                @endif

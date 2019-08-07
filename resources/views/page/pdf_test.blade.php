@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Hi</title>
+	<title>print pdf</title>
 	<style>
 		 
    	
@@ -32,8 +32,8 @@
    
 
    
-   table, th, td {
-  	border: 1px solid black;
+    table,th, td {
+		border: 1px solid black;
   	border-collapse: collapse;
 	}
 	th  {
@@ -46,7 +46,13 @@
    text{
 	   size: 10px;
    }
+.data{
+	
+  
+	  
 
+
+}
 
 			</style>
 
@@ -73,18 +79,22 @@
 	 
 	@foreach ($data as $p)
 	<p></p>
-			<p> Nama &nbsp;&nbsp;&nbsp;&nbsp;  : {{$p->nama_test}}      </p>
-			<p>  NIS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$p->nis_test}}</p>
+			<p>Nama &nbsp;&nbsp;&nbsp;&nbsp;  : {{$p->nama_test}}      </p>
+			<p> NIS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{$p->nis_test}}</p>
+			
+			
+						 
 			
  <div class="garis_tepi1">
 
-		<table  style="width:100%">
+		<table class="data" style="width:100%">
 				<thead>
 				  <tr>
 					<th scope="col"> NO</th>
 					<th scope="col"> MATERI</th>
 					<th scope="col"> NILAI</th>
 					<th scope="col"> MINAT</th>
+					
 					<th scope="col"> REKOMENDASI</th>
 				  </tr>
 				</thead>
@@ -106,74 +116,134 @@
 
 						 @endif
 						
-						@if($p->minat_test <1)
-						<td> Survival</td>
-						@elseif($p->minat_test == 1)
-						<td> SAR</td>
-						@elseif($p->minat_test > 1)
-						<td> RC</td>
-						@elseif($p->minat_test > 2)
-						<td> tidak terdefinisi</td>
-						@else
-							<td> nilai tidak ada </td>
-
-						 @endif
 						
+						<td align="center" rowspan="6" > 
+						 @if($p->minat_test <1)
+						 <p> Survival</p>
+						 @elseif($p->minat_test == 1)
+						 <p> SAR</p>
+						 @elseif($p->minat_test > 1)
+						 <p> RC</p>
+						 @elseif($p->minat_test > 2)
+						 <p> tidak terdefinisi</p>
+						 @else
+							 <p> nilai tidak ada </p>
+		 
+						  @endif
+						</td>
+
+						<td align="center" rowspan="6">
 						 @if($p->divisi_test <1)
-						<td> SURVIVAL</td>
+						<p> SURVIVAL</p>
 						@elseif($p->divisi_test == 1)
-						<td> SAR </td>
+						<p> SAR </p>
 						@elseif($p->divisi_test > 1)
-						<td> RC</td>
+						<p> RC</p>
 						@elseif($p->divisi_test > 2)
-						<td>Nilai tidak terdefinisi</td>
+						<p>Nilai tidak terdefinisi</p>
 						@else
-							<td> nilai tidak ada </td>
+							<p> nilai tidak ada </p>
 						 @endif
+						</td>
 						
 					</tr>
+					<tr>
+						<td>{{$no++}}</td>
+						<td>PPGD</td>
+						
+					@if($p->n_ppgd_test <1)
+					<td> rendah</td>
+					@elseif($p->n_ppgd_test == 1)
+					<td> sedang</td>
+					@elseif($p->n_ppgd_test > 1)
+					<td> tinggi</td>
+					@elseif($p->n_ppgd_test > 2)
+					<td>Nilai tidak terdefinisi</td>
+					@else
+						<td> nilai tidak ada </td>
+
+					 @endif
+						
+						</tr>
+
+
 					<tr>
 					<td>{{$no++}}</td>
 					<td>SAR</td>
 					
-					@if($p->n_gh_test <1)
+					@if($p->n_sar_test <1)
 					<td> rendah</td>
-					@elseif($p->n_gh_test == 1)
+					@elseif($p->n_sar_test == 1)
 					<td> sedang</td>
-					@elseif($p->n_gh_test > 1)
+					@elseif($p->n_sar_test > 1)
 					<td> tinggi</td>
-					@elseif($p->n_gh_test > 2)
+					@elseif($p->n_sar_test > 2)
 					<td>Nilai tidak terdefinisi</td>
 					@else
 						<td> nilai tidak ada </td>
 
-					 @endif
-					
-					@if($p->minat_test <1)
-					<td> Survival</td>
-					@elseif($p->minat_test == 1)
-					<td> SAR</td>
-					@elseif($p->minat_test > 1)
-					<td> RC</td>
-					@elseif($p->minat_test > 2)
-					<td> tidak terdefinisi</td>
-					@else
-						<td> nilai tidak ada </td>
-
-					 @endif
-					
-					 @if($p->divisi_test <1)
-					<td> SURVIVAL</td>
-					@elseif($p->divisi_test == 1)
-					<td> SAR </td>
-					@elseif($p->divisi_test > 1)
-					<td> RC</td>
-					@elseif($p->divisi_test > 2)
-					<td>Nilai tidak terdefinisi</td>
-					@else
-						<td> nilai tidak ada </td>
 					 @endif
 					</tr>
+					<tr>
+					<td>{{$no++}}</td>
+					<td>Ilmu Medan Peta Kompas</td>
+					
+					@if($p->n_impk_test <1)
+					<td> rendah</td>
+					@elseif($p->n_impk_test == 1)
+					<td> sedang</td>
+					@elseif($p->n_impk_test > 1)
+					<td> tinggi</td>
+					@elseif($p->n_impk_test > 2)
+					<td>Nilai tidak terdefinisi</td>
+					@else
+						<td> nilai tidak ada </td>
+
+					 @endif
+					</tr>
+					<tr>
+
+					<td>{{$no++}}</td>
+					<td>Repling</td>
+					
+					@if($p->n_repling_test <1)
+					<td> rendah</td>
+					@elseif($p->n_repling_test == 1)
+					<td> sedang</td>
+					@elseif($p->n_repling_test > 1)
+					<td> tinggi</td>
+					@elseif($p->n_repling_test > 2)
+					<td>Nilai tidak terdefinisi</td>
+					@else
+						<td> nilai tidak ada </td>
+
+					 @endif
+					</tr>
+
+					<tr>
+
+						<td>{{$no++}}</td>
+						<td>Sebrang Kering</td>
+						
+						@if($p->n_sebrang_kering_test <1)
+						<td> rendah</td>
+						@elseif($p->n_sebrang_kering_test == 1)
+						<td> sedang</td>
+						@elseif($p->n_sebrang_kering_test > 1)
+						<td> tinggi</td>
+						@elseif($p->n_sebrang_kering_test > 2)
+						<td>Nilai tidak terdefinisi</td>
+						@else
+							<td> nilai tidak ada </td>
+	
+						 @endif
+						</tr>
+
+					
+					
+					
+					
+					 
 					
 	
 						
