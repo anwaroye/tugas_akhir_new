@@ -23,8 +23,8 @@ class CreateTestingsTable extends Migration
             $table->tinyInteger('n_impk_test');
             $table->tinyInteger('n_repling_test');
             $table->tinyInteger('n_sebrang_kering_test');
-            $table->tinyInteger('minat_test');
-            $table->string('divisi_test');
+            $table->string('minat_test',1);
+            $table->tinyInteger('divisi_test');
             $table->timestamps();
         });
     }

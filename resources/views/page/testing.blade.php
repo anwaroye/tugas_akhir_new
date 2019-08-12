@@ -6,7 +6,7 @@
         <!-- Horizontal Form -->
         <div class="box box-info">
           <div class="box-header with-border">
-            <h3 class="box-title">Horizontal Form</h3>
+            <h3 class="box-title">Input Testing Form</h3>
           </div>
           <!-- /.box-header -->
           <!-- form start -->
@@ -157,7 +157,7 @@
               <div class="col-xs-12">
                 <div class="box">
                   <div class="box-header">
-                    <h3 class="box-title">Hover Data Table</h3>
+                    <h3 class="box-title">Data Testing</h3>
                   </div>
                   <!-- /.box-header -->
                   <div class="box-body">

@@ -159,7 +159,7 @@
                     <div class="row">
                       <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="info-box">
-                          <span class="info-box-icon bg-aqua"><i class="fa  fa-paw"></i></span>
+                          <span class="info-box-icon bg-green"><i class="fa  fa-paw"></i></span>
               
                           <div class="info-box-content">
                             <span class="info-box-text">Divisi Survival [Training]</span>
@@ -184,7 +184,7 @@
                       </div>
                       <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="info-box">
-                          <span class="info-box-icon bg-red"><i class="fa fa-hand-paper-o"></i></span>
+                          <span class="info-box-icon bg-blue"><i class="fa fa-hand-paper-o"></i></span>
               
                           <div class="info-box-content">
                             <span class="info-box-text"> Divisi RC [Training]</span>
@@ -201,7 +201,7 @@
               
                       <div class="col-md-4 col-sm-6 col-xs-12">
                         <div class="info-box">
-                          <span class="info-box-icon bg-green"><i class="ion ion-ios-cart-outline"></i></span>
+                          <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
               
                           <div class="info-box-content">
                             <span class="info-box-text">Divisi Survival [Testing]</span>

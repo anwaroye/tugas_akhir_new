@@ -7,7 +7,7 @@
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Hover Data Table</h3>
+              <h3 class="box-title"> Data Table Training</h3>
             </div>
 
             {{-- notifikasi form validasi --}}
@@ -24,13 +24,16 @@
 			<strong>{{ $sukses }}</strong>
 		</div>
     @endif
-    <section> 
-      <form role="form" action="{{URL::to('index/import_excel')}}" method="post" enctype="multipart/form-data">
-        <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
-          Import Training
-        </button>
-      </form>
-    </section>
+    <section>
+      <div class="form">
+          <form role="form" action="{{URL::to('index/import_excel')}}" method="post" enctype="multipart/form-data">
+            <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
+              Import Training
+            </button>
+          </form>
+    
+        </div> 
+          </section>
     
     
 
@@ -68,7 +71,7 @@
    
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example2" class="table table-bordered table-hover">
+              <table id="example1" class="table table-bordered table-hover">
                 <thead>
                 <tr>
                   <th>No</th>

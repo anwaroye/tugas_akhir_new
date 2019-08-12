@@ -10,8 +10,7 @@ class training extends Model
     // protected $primaryKey ="id";
 
     protected $fillable = [
-        'nis',
-        'nama',
+      
         'nilai_gh',
         'nilai_ppgd',
         'nilai_sar',

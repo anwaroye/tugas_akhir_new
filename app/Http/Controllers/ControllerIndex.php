@@ -53,11 +53,12 @@ class ControllerIndex extends Controller
 		// upload ke folder file_siswa di dalam folder public
 		$file->move('file_training',$nama_file);
  
-		// import data
-		Excel::import(new TrainingImport, public_path('/file_training/'.$nama_file));
- 
+        // import data
+        // dd($file);
+        
+        Excel::import(new TrainingImport, public_path('/file_training/'.$nama_file));
 		// notifikasi dengan session
-		Session::flash('sukses','Data Siswa Berhasil Diimport!');
+		Session::flash('sukses','Data Training Berhasil Diimport!');
  
 		// alihkan halaman kembali
 		return redirect('/index');
