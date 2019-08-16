@@ -26,6 +26,8 @@
 <link rel="stylesheet" href="{{asset('admin/bower_components/jvectormap/jquery-jvectormap.css')}}">
 <!-- Theme style -->
 <link rel="stylesheet" href="{{asset('admin/dist/css/AdminLTE.min.css')}}">
+
+<link rel="stylesheet" type="text/css" href="/pathto/css/sweetalert.css">
 <!-- AdminLTE Skins. Choose a skin from the css/skins
      folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet" href="{{asset('admin/dist/css/skins/_all-skins.min.css')}}">
@@ -80,7 +82,7 @@
                           {{-- {{ config('app.name', 'Laravel') }} --}}
 
                           <img src="{{asset('admin/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
-                          <span class="hidden-xs">user</span>
+                          <span class="hidden-xs">{{Auth::user()->name}}</span>
                           </a>
                           <ul class="dropdown-menu">
                             <!-- User image -->

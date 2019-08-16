@@ -32,19 +32,22 @@
                         <h2>Login</h2>
                         <p class="lead">Before you get started, you must login </p>
                         
-                        <form autocomplete="off"  method="POST" action="{{ route('login') }}">
+                         <form autocomplete="off"  method="POST" action="{{ route('login') }}">
                             <div class="form-group">
+                                    {{csrf_field()}}
                                 @csrf
                                 <label for="username">Email</label>
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                 <input type="text" class="form-control" name="name" id="" placeholder="Username">
 
-                                @error('email')
+                                {{-- <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autocomplete="email" autofocus> --}}
+
+                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
-                                @enderror
+                                @enderror 
 
-                                {{-- <input type="text" name="username" class="form-control" id="username" tabindex="1"> --}}
+                                {{-- <input type="text" name="username" class="form-control" id="username" tabindex="1">  --}}
                             </div>
                             <div class="form-group">
                                 <label class="d-block" for="password">
@@ -53,7 +56,9 @@
                                         <a href="#"></a>
                                     </div>
                                 </label>
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+              <input type="password" class="form-control" name="password" id="inputPassword3" placeholder="Password">
+
+                                {{-- <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"> --}}
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -66,14 +71,14 @@
                                 <div class="float-left mt-2">
                                     <a href="#"></a>
                                 </div>
-                                {{-- <button class="btn btn-primary" tabindex="3">
+                                 {{-- <button class="btn btn-primary" tabindex="3">
                                     Login
-                                </button> --}}
-                                <button type="submit" class="btn btn-primary" tabindex="3">
+                                </button>  --}}
+                                 <button type="submit" class="btn btn-primary" tabindex="3">
                                     {{ __('login') }}
-                                </button>
-
-                                {{-- @if (Route::has('password.request'))
+                                </button> 
+{{-- 
+                                @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
@@ -86,6 +91,54 @@
         </div>
     </div>
 </div>
+
+{{-- 
+<div class="col-md-6">
+    <!-- Horizontal Form -->
+    <div class="box box-info">
+      <div class="box-header with-border">
+        <h3 class="box-title">Horizontal Form</h3>
+      </div>
+      
+    <form action="{{route('login')}}" method="POST" class="form-horizontal">
+        {{csrf_field()}}
+        <div class="box-body">
+          <div class="form-group">
+            <label for="" name="name" class="col-sm-2 control-label">User Name</label>
+
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="name" id="" placeholder="Username">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+
+            <div class="col-sm-10">
+              <input type="password" class="form-control" name="password" id="inputPassword3" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> Remember me
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+        <div class="box-footer">
+          <button type="submit" class="btn btn-info pull-right">Sign in</button>
+        </div>
+ 
+      </form>
+    </div>
+   
+    
+    <!-- /.box -->
+  </div> --}}
+
 
 <script src="{{asset('login-asset/js/particles.js')}}"></script>
 <script>

@@ -38,5 +38,7 @@ Route::get('/pdf/{id}','ControllerTesting@generatePDF')->name('pdf');
 // Route::post('show','ControllerTesting@show')->name('show');
 // Route::resource('show','ControllerTesting');
 
-
+// login
+Route::post('login','Auth\LoginController@doLogin')->name('login');
+ 
 
