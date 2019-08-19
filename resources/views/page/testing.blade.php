@@ -40,7 +40,7 @@
                                 <label for="text-input" class=" form-control-label">NIS</label>
                             </div>
                             <div class="col-12 col-md-9">
-                                <input type="number" value="{{old('nis_test') }}" id="nisn_test" name="nis_test"
+                                <input type="number" value="{{old('nis_test') }}" id="nis_test" name="nis_test"
                                     placeholder=" " class="form-control">
 
                             </div>
@@ -108,7 +108,7 @@
                                             </div>
                                         <div class="row form-group">
                                                 <div class="col col-md-3">
-                                                    <label for="text-input" class=" form-control-label">Nilai Seebrang Kering</label>
+                                                    <label for="text-input" class=" form-control-label">Nilai Sebrang Kering</label>
                                                 </div>
                                                 <div class="col-12 col-md-9">
                                                         <input type="number" min="0" max="100" value="{{old('sk') }}" id="sk" name="sk"
@@ -187,13 +187,15 @@
                       <td>{{$dttestings->nama_test}}</td>
                       <td>{{$dttestings->nis_test}}</td>
                       @if($dttestings->divisi_test <1)
-                              <td> Survival</td>
-                              @elseif($dttestings->divisi_test == 1)
-                              <td> SAR</td>
-                              @elseif($dttestings->divisi_test > 1)
-                              <td> RC</td>
-                              @else
-                                  <td> nilai tidak ada </td>
+                        <td> Survival</td>
+                        @elseif($dttestings->divisi_test == 1)
+                        <td> SAR</td>
+                        @elseif($dttestings->divisi_test > 1)
+                        <td> RC</td>
+                        @elseif($dttestings->divisi_test>2)
+                        <td>nilai tidak terdefinisikan</td>
+                        @else
+                        <td> nilai tidak ada </td>
                                @endif
   
                     {{-- <td>{{$dttestings->divisi_test}}</td> --}}
@@ -219,6 +221,8 @@
                                    data-n_gh_test="sedang"  
                                    @elseif($dttestings->n_gh_test > 1)
                                    data-n_gh_test ="tinggi"
+                                   @elseif($dttestings->n_gh_test_test>2)
+                                    data-n_gh_test="nilai tidak terdefinisikan"
                                    @else
                                    data-n_gh_test="data tidak ada"
                                    @endif
@@ -229,6 +233,8 @@
                                    data-n_ppgd_test="sedang"  
                                    @elseif($dttestings->n_ppgd_test > 1)
                                    data-n_ppgd_test ="tinggi"
+                                   @elseif($dttestings->n_ppgd_test>2)
+                                    data-n_ppgd_test="nilai tidak terdefinisikan"
                                    @else
                                    data-n_ppgd_test="data tidak ada"
                                    @endif
@@ -239,6 +245,8 @@
                                    data-n_sar_test="sedang"  
                                    @elseif($dttestings->n_sar_test > 1)
                                    data-n_sar_test ="tinggi"
+                                   @elseif($dttestings->n_sar_test>2)
+                                    data-n_sar_test="nilai tidak terdefinisikan"
                                    @else
                                    data-n_sar_test="data tidak ada"
                                    @endif
@@ -249,6 +257,8 @@
                                    data-n_impk_test="sedang"  
                                    @elseif($dttestings->n_impk_test > 1)
                                    data-n_impk_test ="tinggi"
+                                   @elseif($dttestings->n_impk_test>2)
+                                    data-n_impk_test="nilai tidak terdefinisikan"
                                    @else
                                    data-n_impk_test="data tidak ada"
                                    @endif
@@ -259,6 +269,8 @@
                                    data-n_repling_test="sedang"  
                                    @elseif($dttestings->n_repling_test > 1)
                                    data-n_repling_test ="tinggi"
+                                   @elseif($dttestings->n_repling_test>2)
+                                    data-n_repling_test="nilai tidak terdefinisikan"
                                    @else
                                    data-n_repling_test="data tidak ada"
                                    @endif
@@ -269,24 +281,39 @@
                                    data-n_sebrang_kering_test="sedang"  
                                    @elseif($dttestings->n_sebrang_kering_test > 1)
                                    data-n_sebrang_kering_test ="tinggi"
+                                   @elseif($dttestings->n_sebrang_kering_test>2)
+                                    data-n_sebrang_kering_test="nilai tidak terdefinisikan"
                                    @else
                                    data-n_sebrang_kering_test="data tidak ada"
                                    @endif
 
                                    @if ($dttestings->minat_test <1)
-                                   data-minat_test="rendah"  
+                                   data-minat_test="Survival"  
                                    @elseif ($dttestings->minat_test == 1)  
-                                   data-minat_test="sedang"  
+                                   data-minat_test="Sar"  
                                    @elseif($dttestings->minat_test > 1)
-                                   data-minat_test ="tinggi"
+                                   data-minat_test ="Rc"
+                                   @elseif($dttestings->minat_test>2)
+                                    data-minat_test="nilai tidak terdefinisikan"
                                    @else
                                    data-minat_test="data tidak ada"
                                    @endif
 
+                                   @if ($dttestings->divisi_test <1)
+                                   data-divisi_test="Survival"  
+                                   @elseif ($dttestings->divisi_test == 1)  
+                                   data-divisi_test="Sar"  
+                                   @elseif($dttestings->divisi_test > 1)
+                                   data-divisi_test ="Rc"
+                                   @elseif($dttestings->divisi_test>2)
+                                    data-divisi_test="nilai tidak terdefinisikan"
+                                   @else
+                                   data-divisi_test="data tidak ada"
+                                   @endif
 
                                        
                                   
-                                                                             
+                                    data-nis_test="{{$dttestings->nis_test}}"                                          
                                    data-n_gh_test="{{$dttestings->n_gh_test}}"                                           
                                    data-n_ppgd_test="{{$dttestings->n_ppgd_test}}"                                           
                                    data-n_sar_test="{{$dttestings->n_sar_test}}"                                           

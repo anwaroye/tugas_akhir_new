@@ -36,12 +36,16 @@
                             <div class="form-group">
                                     {{csrf_field()}}
                                 @csrf
-                                <label for="username">Email</label>
-                                 <input type="text" class="form-control" name="name" id="" placeholder="Username">
-
-                                {{-- <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}" required autocomplete="email" autofocus> --}}
-
-                                 @error('email')
+                                <label for="username">Username</label>
+                                @if ($message = Session::get('error'))
+                            <div class="alert alert-danger alert-block">
+                              <button type="button" class="close" data-dismiss="alert">×</button> 
+                              <strong>{{ $message }}</strong>
+                            </div>
+                          @endif
+                                 <input type="text"  class="form-control @error('email') is-invalid @enderror" name="name" id="name" placeholder="Username"  value="{{ old('name') }}" required autocomplete="name" autofocus>                              
+                            
+                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -52,11 +56,12 @@
                             <div class="form-group">
                                 <label class="d-block" for="password">
                                     Password
-                                    <div class="float-right">
+                                    {{-- <div class="float-right">
                                         <a href="#"></a>
-                                    </div>
+                                    </div> --}}
                                 </label>
-              <input type="password" class="form-control" name="password" id="inputPassword3" placeholder="Password">
+                              
+                             <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Password" required autocomplete="current-password" value="{{ old('password') }}">
 
                                 {{-- <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password"> --}}
 
@@ -71,9 +76,7 @@
                                 <div class="float-left mt-2">
                                     <a href="#"></a>
                                 </div>
-                                 {{-- <button class="btn btn-primary" tabindex="3">
-                                    Login
-                                </button>  --}}
+                              
                                  <button type="submit" class="btn btn-primary" tabindex="3">
                                     {{ __('login') }}
                                 </button> 

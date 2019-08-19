@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Session;
+
 use Alert;
 
 class LoginController extends Controller
@@ -57,14 +59,16 @@ class LoginController extends Controller
         'name'  => $request->get('name'),
         'password'  => $request->get('password')
         );
-        // dd($user_data);
 
         if (Auth::guard()->attempt($user_data)) {
           return redirect()->route('index')->with('success', 'Berhasil login');
         } else {
           Alert::error('Gagal login, silahkan coba lagi', 'Gagal');
+          Session::flash('error','username atau password salah!');
           return back()->withInput($request->all());
         }
+		
+
     }
 
 

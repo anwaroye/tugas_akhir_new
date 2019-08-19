@@ -267,7 +267,7 @@
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="mediumModalLabel">Vie Testing</h5>
+                    <h5 class="modal-title" id="mediumModalLabel">View Testing</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -444,14 +444,14 @@
                 var button = $(event.relatedTarget);
                 var id = button.data('id');
                 var nama_test               = button.data('nama_test');
-                var nis                     = button.data('nis_test');
+                var nis_test                     = button.data('nis_test');
                 var n_gh_test               = button.data('n_gh_test');
                 var n_ppgd_test             = button.data('n_ppgd_test');
                 var n_sar_test              = button.data('n_sar_test');
                 var n_impk_test             = button.data('n_impk_test');
                 var n_repling_test          = button.data('n_repling_test');
                 var n_sebrang_kering_test   = button.data('n_sebrang_kering_test');
-                var n_minat_test            = button.data('minat_test');
+                var minat_test            = button.data('minat_test');
                 var divisi_test             = button.data('divisi_test');
                 var modal = $(this);
                 
