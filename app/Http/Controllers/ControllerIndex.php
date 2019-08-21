@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
+use App\Exports\TrainingExport;
 use\App\training;
 use Session;
+
+use PDF;
+
 use App\Imports\TrainingImport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\DB;
@@ -131,4 +135,14 @@ class ControllerIndex extends Controller
     {
         //
     }
+    public function trai_export(){
+        return Excel::download(new TrainingExport, 'Ex_training.xlsx');
+    }
+    public function trai_pdf(){
+        $pdf_trai = training::all();
+ 
+    	$pdf = PDF::loadview('page/training_pdf',['pdf_trai'=>$pdf_trai]);
+    	return $pdf->stream();
+    }
+    
 }

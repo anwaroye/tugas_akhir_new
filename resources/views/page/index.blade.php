@@ -10,21 +10,27 @@
               <h3 class="box-title"> Data Table Training</h3>
             </div>
 
-            {{-- notifikasi form validasi --}}
-		@if ($errors->has('file'))
-		<span class="invalid-feedback" role="alert">
-			<strong>{{ $errors->first('file') }}</strong>
-		</span>
-    @endif
+                  {{-- notifikasi form validasi --}}
+                    @if ($errors->has('file'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('file') }}</strong>
+                      </span>
+                  @endif
     
-    {{-- notifikasi sukses --}}
-		@if ($sukses = Session::get('sukses'))
-		<div class="alert alert-success alert-block">
-			<button type="button" class="close" data-dismiss="alert">×</button> 
-			<strong>{{ $sukses }}</strong>
-		</div>
-    @endif
+                  {{-- notifikasi sukses --}}
+                  @if ($sukses = Session::get('sukses'))
+                  <div class="alert alert-success alert-block">
+                    <button type="button" class="close" data-dismiss="alert">×</button> 
+                    <strong>{{ $sukses }}</strong>
+                  </div>
+                  @endif
     <section>
+    <div class="contaiber">
+      <div class="col-sm-10">
+        
+          {{-- <a href="/training_pdf" class="btn btn-primary" target="_blank">Cetak Pdf</a> --}}
+        </div>
+        <div class="col-sm-12">
       <div class="form">
           <form role="form" action="{{URL::to('index/import_excel')}}" method="post" enctype="multipart/form-data">
             <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">
@@ -33,7 +39,10 @@
           </form>
     
         </div> 
-          </section>
+      </div> 
+    </div>
+      </section>
+      <br>
     
     
 
@@ -67,9 +76,9 @@
 
 {{ Form::close() }} --}}
     
-
    
             <!-- /.box-header -->
+            <br>
             <div class="box-body">
               <table id="example1" class="table table-bordered table-hover">
                 <thead>

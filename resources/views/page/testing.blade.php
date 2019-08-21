@@ -2,9 +2,14 @@
 @section('title',$title)
 
 @section('index')
-<div class="col-md-6">
+
+
+<section class="content">
+<div class="col-sm-12">
         <!-- Horizontal Form -->
-        <div class="box box-info">
+    
+        <div class="col-md-6 col-sm-6 col-sm-3">
+            <div class="box box-info">
           <div class="box-header with-border">
             <h3 class="box-title">Input Testing Form</h3>
           </div>
@@ -21,6 +26,7 @@
                         </ul>
                     </div>
                 @endif
+            
 
             
                 <form action="{{route('createtesting')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
@@ -145,16 +151,49 @@
             <!-- /.box-body -->
            
             <!-- /.box-footer -->
+ </div>
+</div>
+<div class="row">
+        @if ($message = Session::get('sukses'))
+        <div class="alert alert-success alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button> 
+            <strong>{{ $message }}</strong>
         </div>
+        @endif
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-green">
+            <div class="inner">
+            <h3> <sup style="font-size: 20px">%</sup></h3>
+
+              <p>Bounce Rate</p>
+            </div>
+            <div class="icon">
+              <i class="ion ion-stats-bars"></i>
+            </div>
+            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+          </div>
+        </div>
+        <!-- ./col -->
+       
+        <!-- ./col -->
+       
+        <!-- ./col -->
+      </div>
+    </div>
+
+</section>
+
         <!-- /.box -->
         
-      </div>
       
 
-       
-      <section class="content">
+     
+<section class="content">
+    {{-- <div class="col-md-12"> --}}
             <div class="row">
-              <div class="col-xs-12">
+              <div class="col-md-12 col-xs-12 col-sm-6">
                 <div class="box">
                   <div class="box-header">
                     <h3 class="box-title">Data Testing</h3>
@@ -359,6 +398,7 @@
                 </div>
               </div>
             </div>
+
           </section>
 
 

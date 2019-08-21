@@ -41,4 +41,5 @@ Route::get('/pdf/{id}','ControllerTesting@generatePDF')->name('pdf');
 // login
 Route::post('login','Auth\LoginController@doLogin')->name('login');
  
-
+Route::get('/export_excel', 'ControllerIndex@trai_export');
+Route::get('/training_pdf', 'ControllerIndex@trai_pdf');

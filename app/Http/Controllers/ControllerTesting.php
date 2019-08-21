@@ -4,8 +4,12 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+
 use\App\testing;
 use\App\training;
+use Session;
+
+
 // use\App\DB;
 
 use PDF;
@@ -121,6 +125,7 @@ class ControllerTesting extends Controller
           $dttesting->save();
 
     //       var_dump(request('id_event'));
+    
           return redirect()->route('testing')->with('alert-success', 'data berhasil dimasukan');
  
     }
@@ -246,6 +251,8 @@ class ControllerTesting extends Controller
 		$data['survival'] = $p_survival;
 		$data['sar'] = $p_sar;
         $data['rc'] = $p_rc;
+        // Session::flash('sukses',$p_survival);
+        // return redirect('testing','data berhasil di inputkan liat tabel!!!');
         
         
         //menampilkan hasil hasil terbesar dari perbandingan
@@ -338,4 +345,5 @@ class ControllerTesting extends Controller
         
 
     }
+   
 }
