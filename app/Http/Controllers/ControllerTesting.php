@@ -88,7 +88,8 @@ class ControllerTesting extends Controller
         //   $dttesting->jenis_data ='1';
          
 
-        //memasukan data ke variable array 
+        //memasukan data ke variable array
+        //tahap 1 
          $data[0]= $request->get('gh');
          $data[1]= $request->get('ppgd');
          $data[2]= $request->get('sar');
@@ -98,6 +99,9 @@ class ControllerTesting extends Controller
          $minat= $request->get('minat');
          $atribut = $this->kat_atribut($data);
 
+
+
+         
          $data_nb = array(  'gh'=>$atribut[0],
                             'ppgd'=>$atribut[1],
                             'sar'=>$atribut[2],
@@ -130,7 +134,8 @@ class ControllerTesting extends Controller
  
     }
     //mengkonvert dari nilai 0,1,2 yang mewakili rendah sendang dan tinggi
-    
+    //[tahap 2]
+
     private function kat_atribut($data){
 		for($i=0; $i<count($data); $i++){
 			switch ($data[$i]) {
@@ -169,14 +174,14 @@ class ControllerTesting extends Controller
         $sar = training::where('divisi',1);
         $sar_row = $sar->count();
         $rc = training::where('divisi',2);
-        $rc_row = $rc->count();
+        $rc_row = $rc->count(); //mengambil data
         
         //mengabil jumlah  data baris berdasarkan atribute dan label
         
         //cnth :  total atribute gh  sedang dengan label Survival dibagi keseluruhan jumlah baris
         // dari label survival   
 
-		$tot_gh_survival = training::where('nilai_gh',$gh)->where('divisi','0')->count();
+		$tot_gh_survival = training::where('nilai_gh',$gh)->where('divisi',0)->count(); //'0'
 		$p_gh_survival = $tot_gh_survival / $survival_row;
 		$tot_gh_sar = training::where('nilai_gh',$gh)->where('divisi',1)->count();
 		$p_gh_sar = $tot_gh_sar / $sar_row;
